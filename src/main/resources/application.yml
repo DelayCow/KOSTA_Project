@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: delayCow
+  jpa:
+    open-in-view: false
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+
+server:
+  port: 5432
