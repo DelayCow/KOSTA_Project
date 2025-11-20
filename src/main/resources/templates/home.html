@@ -3,142 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>로고자리 - 홈</title>
+  <title>home</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
-  <style>
-    body {
-      background-color: #f8f9fa;
-      padding-bottom: 80px;
-    }
-
-    .mobile-container {
-      max-width: 920px;
-      margin: 0 auto;
-      background-color: #ffffff;
-      min-height: 100vh;
-      box-shadow: 0 0 15px rgba(0,0,0,0.05);
-    }
-
-    .horizontal-scroll {
-      display: flex;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      gap: 1rem;
-      padding-bottom: 10px;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    }
-    .horizontal-scroll::-webkit-scrollbar {
-      display: none;
-    }
-
-    .card-custom {
-      flex: 0 0 auto;
-      width: 160px;
-      border: none;
-      cursor: pointer;
-    }
-
-    .card-wide {
-      width: 300px;
-    }
-    .card-img-top {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
-
-    .text-ellipsis {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .section-title {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 0.2rem;
-    }
-    .section-subtitle {
-      font-size: 0.85rem;
-      color: #6c757d;
-      margin-bottom: 1rem;
-    }
-
-    .nav-tabs .nav-link {
-      color: #6c757d;
-      border: none;
-      border-bottom: 3px solid transparent;
-      font-weight: 600;
-      background: transparent;
-      width: 100%; /* 버튼 꽉 차게 */
-    }
-    .nav-tabs .nav-link.active {
-      color: #000;
-      border-bottom: 3px solid #000;
-      background: transparent;
-    }
-    .nav-item {
-      flex: 1;
-      text-align: center;
-      cursor: pointer;
-    }
-
-    .profile-img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-right: 4px;
-    }
-    .badge-location {
-      background-color: #f1f3f5;
-      color: #495057;
-      font-weight: normal;
-      font-size: 0.7rem;
-    }
-    .bottom-nav {
-      max-width: 920px;
-      margin: 0 auto;
-      left: 0;
-      right: 0;
-      border-top: 1px solid #dee2e6;
-    }
-    .bottom-nav .nav-link {
-      color: #868e96;
-      font-size: 0.75rem;
-      text-align: center;
-    }
-    .bottom-nav .nav-link.active {
-      color: #212529;
-    }
-    .bottom-nav i {
-      font-size: 1.4rem;
-      display: block;
-      margin-bottom: -2px;
-    }
-    .spicy{
-      width: 15px;
-    }
-    .scroll-btn {
-      z-index: 10;
-      margin: 0 5px;
-    }
-  </style>
+  <link rel="stylesheet" href="../static/css/layout.css">
+  <link rel="stylesheet" href="../static/css/home.css">
+  <link rel="stylesheet" href="../static/css/card.css">
 </head>
 <body>
-
 <div class="mobile-container position-relative">
-
   <header class="d-flex justify-content-between align-items-center p-3 bg-white sticky-top" style="z-index: 1020;">
     <h4 class="m-0 fw-bold">로고자리</h4>
     <a href="#" class="text-dark"><i class="bi bi-bell fs-4"></i></a>
   </header>
 
-    <div class="px-3" id="main-tab-pane">
+  <div class="px-3" id="main">
 
       <section class="mb-3">
         <div class="d-flex align-items-center mb-3">
@@ -417,6 +296,7 @@
         </div>
       </section>
     </div>
+
   <nav class="navbar fixed-bottom bg-white bottom-nav p-0">
   <div class="container-fluid p-0">
     <ul class="nav w-100 justify-content-between py-2 px-3">
@@ -440,12 +320,6 @@
       </li>
       <li class="nav-item">
         <a class="nav-link p-1" href="#">
-          <i class="bi bi-chat-dots"></i>
-          채팅
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link p-1" href="#">
           <i class="bi bi-person"></i>
           MY
         </a>
@@ -453,24 +327,10 @@
     </ul>
   </div>
 </nav>
-
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-
-  document.querySelectorAll('.card-custom').forEach(card => {
-    card.addEventListener('click', function() {
-      const noValue = this.getAttribute('data-no');
-      const type = this.getAttribute('data-type');
-
-      if (noValue) {
-        // window.location.href = `http://127.0.0.1:5432/${type}/detail/${noValue}`; //api 예상
-        alert(type + noValue) //테스트
-      }
-    });
-  });
-
   document.addEventListener('DOMContentLoaded', function() {
     const scrollButtons = document.querySelectorAll('.scroll-btn');
     const scrollDistance = 280;
@@ -491,6 +351,18 @@
           left: newScrollLeft,
           behavior: 'smooth'
         });
+      });
+    });
+
+    document.querySelectorAll('.card-custom').forEach(card => {
+      card.addEventListener('click', function() {
+        const noValue = this.getAttribute('data-no');
+        const type = this.getAttribute('data-type');
+
+        if (noValue) {
+          // window.location.href = `http://127.0.0.1:5432/${type}/detail/${noValue}`; //api 예상
+          alert(type + noValue) //테스트
+        }
       });
     });
   });
